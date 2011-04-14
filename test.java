@@ -25,7 +25,7 @@ public class test extends Activity {
 		// this is how you tell Amarino to connect to a specific BT device from within your own code
 		
     }
-    private void senddate1(){
+    private void senddate1(){    //这里想通过判断按钮是否被安下，来发送信息,但不知道具体的语法
     	if(button1)
     	{
     		Amarino.sendDataToArduino(this, DEVICE_ADDRESS, 'a', 1);
@@ -34,7 +34,7 @@ public class test extends Activity {
     private void senddate2(){
     	if(button2)
     	{
-    		Amarino.sendDataToArduino(this, DEVICE_ADDRESS, 'a', 2);
+    		Amarino.sendDataToArduino(this, DEVICE_ADDRESS, 'b', 2);
     	}	
 	}
     @Override
