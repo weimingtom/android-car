@@ -21,13 +21,15 @@ public class Test extends Activity {
     
                   private Button left;
                   private Button right;
+                  
+                  private Context mContext;
                 
             /** Called when the activity is first created. */
             @Override
             public void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.main);
-                
+                mContext = getApplicationContext();
                 Amarino.connect(this, DEVICE_ADDRESS);
                 
 
@@ -68,7 +70,7 @@ public class Test extends Activity {
                 @Override
                 public void onLongPress(MotionEvent e) {
                         // TODO Auto-generated method stub
-                        Amarino.sendDataToArduino(this, DEVICE_ADDRESS, 'c', 3);  ////sendDataToArduino error  ？
+                        Amarino.sendDataToArduino(mContext, DEVICE_ADDRESS, 'c', 3);  ////sendDataToArduino error  ？
                 }
         };
         private OnGestureListener onGestureListener_RIGHT = new OnGestureListener() {  //OnGestureListener  error  ？
@@ -76,7 +78,7 @@ public class Test extends Activity {
                 @Override
                 public void onLongPress(MotionEvent e) {
                         // TODO Auto-generated method stub
-                	Amarino.sendDataToArduino(this, DEVICE_ADDRESS, 'd', 4);  //sendDataToArduino error  ？
+                	Amarino.sendDataToArduino(mContext, DEVICE_ADDRESS, 'd', 4);  //sendDataToArduino error  ？
                 }
         };
         
