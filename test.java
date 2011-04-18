@@ -1,17 +1,16 @@
+
 package com.demo.android.test;
-//我前几天公司里太忙了，今天编译了一下，修改了一点，还有4个错误，你看看，是什么原因
+
 import android.app.Activity;
-import android.content.IntentFilter;
+import android.content.Context;
 import android.os.Bundle;
-import android.widget.Button;
-import android.util.Log;
 import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.View.OnTouchListener;
-import at.abraxas.amarino.Amarino;//需要这个语句 
-
+import android.widget.Button;
+import at.abraxas.amarino.Amarino;
 public class Test extends Activity {
          private static final String DEVICE_ADDRESS =  "00:11:33:16:00:02";
 
@@ -54,10 +53,10 @@ public class Test extends Activity {
 
                         case R.id.left:
                                 return detector_left.onTouchEvent(event);
-                                break;
+ 
                         case R.id.right:
                                 return detector_right.onTouchEvent(event);
-                                break;
+  
                         default:
                                 break;
                         }
@@ -72,14 +71,78 @@ public class Test extends Activity {
                         // TODO Auto-generated method stub
                         Amarino.sendDataToArduino(mContext, DEVICE_ADDRESS, 'c', 3);  ////sendDataToArduino error  ？
                 }
+
+				@Override
+				public boolean onDown(MotionEvent arg0) {
+					// TODO Auto-generated method stub
+					return false;
+				}
+
+				@Override
+				public boolean onFling(MotionEvent e1, MotionEvent e2,
+						float velocityX, float velocityY) {
+					// TODO Auto-generated method stub
+					return false;
+				}
+
+				@Override
+				public boolean onScroll(MotionEvent e1, MotionEvent e2,
+						float distanceX, float distanceY) {
+					// TODO Auto-generated method stub
+					return false;
+				}
+
+				@Override
+				public void onShowPress(MotionEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public boolean onSingleTapUp(MotionEvent e) {
+					// TODO Auto-generated method stub
+					return false;
+				}
         };
         private OnGestureListener onGestureListener_RIGHT = new OnGestureListener() {  //OnGestureListener  error  ？
 
                 @Override
                 public void onLongPress(MotionEvent e) {
                         // TODO Auto-generated method stub
-                	Amarino.sendDataToArduino(mContext, DEVICE_ADDRESS, 'd', 4);  //sendDataToArduino error  ？
+                        Amarino.sendDataToArduino(mContext, DEVICE_ADDRESS, 'd', 4);  //sendDataToArduino error  ？
                 }
+
+				@Override
+				public boolean onDown(MotionEvent e) {
+					// TODO Auto-generated method stub
+					return false;
+				}
+
+				@Override
+				public boolean onFling(MotionEvent e1, MotionEvent e2,
+						float velocityX, float velocityY) {
+					// TODO Auto-generated method stub
+					return false;
+				}
+
+				@Override
+				public boolean onScroll(MotionEvent e1, MotionEvent e2,
+						float distanceX, float distanceY) {
+					// TODO Auto-generated method stub
+					return false;
+				}
+
+				@Override
+				public void onShowPress(MotionEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public boolean onSingleTapUp(MotionEvent e) {
+					// TODO Auto-generated method stub
+					return false;
+				}
         };
         
 
@@ -101,5 +164,4 @@ public class Test extends Activity {
                         
 
                 }
-}    
- 
+} 
